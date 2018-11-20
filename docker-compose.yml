@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+    app:
+        image: ubnt/unms:latest
+        restart: unless-stopped
+        networks:
+            - net
+        ports:
+            - "8180:80"
+            - "8143:443"
+            - "2055:2055/udp"
+        volumes:
+            - "./data/unms-config:/config"
+
+networks:
+    net:
